@@ -1,6 +1,7 @@
 class Shoe < ApplicationRecord
     # relationships
     # validations
+    validates :price, presence: true 
 
 
     #custom reader/writer methods 

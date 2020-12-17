@@ -1,5 +1,12 @@
 # Rails Models & RESTful Routing
 
+## Dec 17th Tasks:
+- Create a form for making new shoes and the corresponding new/create actions
+- Demonstrate creating the same form with form_tag, form_for, and form_with
+- Create the edit/update actions for editing a shoe
+- Add a button to delete a shoe
+
+## Dec. 16th Tasks:
 - Make a Migration for a Shoe model
     - attributes: brand, color, price, condition
 - Make a model file

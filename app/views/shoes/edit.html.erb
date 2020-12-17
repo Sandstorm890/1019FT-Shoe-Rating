@@ -1,0 +1,9 @@
+<h1>Edit Shoe</h1>
+
+<%= form_for(@shoe) do |f| %>
+    <%= f.label(:brand) %> 
+    <%= f.text_field :brand %> 
+    <%= f.label(:price) %> 
+    <%= f.number_field :price, step: 0.01 %> 
+    <%= f.submit %> 
+<% end %>
