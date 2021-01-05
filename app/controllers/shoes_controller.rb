@@ -19,6 +19,7 @@ class ShoesController < ApplicationController
 
     def create
         @shoe = Shoe.new(shoe_params)
+     
         if @shoe.save 
             redirect_to shoes_path
         else
