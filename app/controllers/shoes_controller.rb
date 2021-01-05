@@ -18,7 +18,7 @@ class ShoesController < ApplicationController
     end
 
     def create
-        @shoe = Shoe.new(shoe_params(:brand, :price))
+        @shoe = Shoe.new(shoe_params)
         if @shoe.save 
             redirect_to shoes_path
         else
@@ -32,7 +32,7 @@ class ShoesController < ApplicationController
 
     def update
         @shoe = Shoe.find(params[:id])
-        @shoe.update(shoe_params(:brand))
+        @shoe.update(shoe_params)
         if @shoe.valid?
             redirect_to shoes_path 
         else
@@ -48,7 +48,7 @@ class ShoesController < ApplicationController
 
     private
 
-    def shoe_params(*args)
-        params.require(:shoe).permit(*args)
+    def shoe_params
+        params.require(:shoe).permit(:color, :brand, :condition, :price)
     end
 end

@@ -9,7 +9,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="l-box">
+    <div>
+      <%= link_to "All Shoes", shoes_path %> |
+      <%= link_to "Create a New Shoe", new_shoe_path %>
+    </div>
+
+
     <%= yield %>
   </body>
 </html>

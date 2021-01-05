@@ -2,8 +2,12 @@
 
 <%= form_for(@shoe) do |f| %>
     <%= f.label(:brand) %> 
-    <%= f.text_field :brand %> 
+    <%= f.text_field :brand %> <br><br/>
     <%= f.label(:price) %> 
-    <%= f.number_field :price, step: 0.01 %> 
+    <%= f.number_field :price, step: 0.01 %><br><br/>
+    <%= f.label(:color) %> 
+    <%= f.text_field :color %><br><br/>
+    <%= f.label(:condition) %> 
+    <%= f.text_field :condition %><br><br>
     <%= f.submit %> 
 <% end %>
