@@ -1,5 +1,14 @@
 # Rails App 10/19 Cohort
 
+## Jan 6th Tasks:
+- Review how the .new method works and what methods are actually being called behind the scenes. 
+- Implement a nested form for a belongs_to relationship
+- Optionally allow a user to choose from a brand that already exists
+- Implement a nested form for a has_many relationship
+- Understand the methods provided by the `accepts_nested_attributes_for` macro
+- Create custom attribute writers and understand why/when they are useful
+
+
 ## Jan 5th Tasks:
 - Explain why we use model validations rather than view or controller validations
 - Use the [Active Record Validations Guide](https://guides.rubyonrails.org/active_record_validations.html#common-validation-options) to add standard validations to our data

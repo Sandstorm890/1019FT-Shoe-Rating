@@ -15,6 +15,8 @@ class ShoesController < ApplicationController
 
     def new
         @shoe = Shoe.new
+        # associate our show to a blank copy of a brand
+        @shoe.build_brand
     end
 
     def create
@@ -50,6 +52,6 @@ class ShoesController < ApplicationController
     private
 
     def shoe_params
-        params.require(:shoe).permit(:color, :brand, :condition, :price)
+        params.require(:shoe).permit(:color, :condition, :price, :brand_id,  brand_attributes: [:name, :year_founded])
     end
 end
