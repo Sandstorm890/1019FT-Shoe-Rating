@@ -1,22 +1,10 @@
 <h1>Create a new brand</h1>
 
-<% if @brand.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+<%= render partial: "layouts/error", locals: {object: @brand}  %>
 
-    <ul>
-      <% @brand.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %> 
 
 <%= form_for @brand do |f| %>
-    <%= f.label(:name) %> 
-    <%= f.text_field :name %><br></br>
-    <%= f.label(:year_founded) %> 
-    <%= f.number_field :year_founded %><br></br>
+    <%= render partial: "form", locals: { in_the_partial: f } %>
     <h3>And add shoes:</h3>
     <%= f.fields_for :shoes do |s|  %>
       <%= s.label "Price" %> 

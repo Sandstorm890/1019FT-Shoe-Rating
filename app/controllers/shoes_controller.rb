@@ -1,4 +1,5 @@
 class ShoesController < ApplicationController
+    layout "shoe"
 
     def index
         @shoes = Shoe.all
@@ -10,7 +11,7 @@ class ShoesController < ApplicationController
 
     def most_expensive
         @shoes = Shoe.most_expensive_shoes.order_by_price
-        render :index
+        render :index, layout: "random"
     end
 
     def new

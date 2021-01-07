@@ -1,0 +1,16 @@
+<% if @brand.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+
+    <ul>
+      <% @brand.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %> 
+
+<%= form_for @brand do |f| %>
+    <%= render partial: "form", locals: { in_the_partial: f } %>
+    <%= f.submit %> 
+<% end %>

@@ -1,22 +1,3 @@
 <h1>Edit Shoe</h1>
 
-<% if @shoe.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
-    <ul>
-      <% @shoe.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for(@shoe) do |f| %>
-    <%= f.label(:price) %> 
-    <%= f.number_field :price, step: 0.01 %><br><br/>
-    <%= f.label(:color) %> 
-    <%= f.text_field :color %><br><br/>
-    <%= f.label(:condition) %> 
-    <%= f.text_field :condition %><br><br>
-    <%= f.submit %> 
-<% end %>
+<%= render partial: "form" %>
