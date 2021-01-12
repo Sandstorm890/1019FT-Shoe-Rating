@@ -1,19 +1,13 @@
 <%= render partial: "layouts/error", locals: {object: @shoe}  %>
 
 
-<%= form_for(@shoe) do |f| %>
+<%= form_for([@brand, @shoe]) do |f| %>
     <%= f.label "Price" %> 
     <%= f.number_field :price, step: 0.01, min: 0 %><br></br>
     <%= f.label(:color) %> 
     <%= f.text_field :color %><br></br>
     <%= f.label(:condition) %> 
     <%= f.text_field :condition, required: true %><br></br>
-    <h3> Select a brand: </h3>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name %>
-
-    <h3>Or create a new brand: </h3>
-    <%= f.fields_for :brand do |b| %>
-       <%= render partial: "brands/form", locals: { in_the_partial: b } %>
-    <% end %>
+    <%= brand_form_fields(f) %>
     <%= f.submit %> 
 <% end %>

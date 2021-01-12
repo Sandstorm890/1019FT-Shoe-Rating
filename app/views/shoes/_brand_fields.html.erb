@@ -1,0 +1,7 @@
+<h3> Select a brand: </h3>
+<%= f.collection_select :brand_id, Brand.all, :id, :name %>
+
+<h3>Or create a new brand: </h3>
+<%= f.fields_for :brand do |b| %>
+    <%= render partial: "brands/form", locals: { in_the_partial: b } %>
+<% end %>

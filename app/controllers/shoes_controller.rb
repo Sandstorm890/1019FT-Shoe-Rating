@@ -2,7 +2,14 @@ class ShoesController < ApplicationController
     layout "shoe"
 
     def index
-        @shoes = Shoe.all
+        # if this request is a nested route
+        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+            @shoes = @brand.shoes
+            # if it is a nested route, then lets only send in that brand's shoes
+        else # otherwise 
+            #show all shoes
+             @shoes = Shoe.all
+        end
     end
 
     def show
@@ -15,13 +22,22 @@ class ShoesController < ApplicationController
     end
 
     def new
-        @shoe = Shoe.new
-        # associate our show to a blank copy of a brand
-        @shoe.build_brand
+        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+            # instantiate a shoe w/ the brand already assigned
+            @shoe = Shoe.new(brand_id: params[:brand_id])
+            #@shoe = @brand.shoes.build
+        else
+            @shoe = Shoe.new
+            # associate our show to a blank copy of a brand
+            @shoe.build_brand
+        end
     end
 
     def create
         @shoe = Shoe.new(shoe_params)
+        if params[:brand_id] #if it's nested
+            @brand = Brand.find(params[:brand_id])  #give it an @brand variable
+        end
      
         if @shoe.save 
             redirect_to shoes_path
