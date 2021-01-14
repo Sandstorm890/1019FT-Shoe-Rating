@@ -1,4 +1,5 @@
 class ShoesController < ApplicationController
+    before_action :redirect_if_not_logged_in
     layout "shoe"
 
     def index
@@ -34,6 +35,7 @@ class ShoesController < ApplicationController
     end
 
     def create
+
         @shoe = Shoe.new(shoe_params)
         if params[:brand_id] #if it's nested
             @brand = Brand.find(params[:brand_id])  #give it an @brand variable
